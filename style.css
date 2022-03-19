@@ -1,0 +1,17 @@
+.container {
+    display: grid;
+    grid-template-areas: 
+        "form form form"
+        "library library library"
+        "library library library"
+        "library library library"
+                    
+}
+
+.form {
+    grid-area: form;
+}
+
+.library {
+    grid-area: library;
+}
