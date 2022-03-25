@@ -3,9 +3,9 @@
 }
 
 .form {
-   display: flex;
-   justify-content: space-around;
-   flex-direction:row;
+   display: grid;
+   justify-content: center;
+   align-content: center;
 }
 
 .library {
@@ -15,9 +15,8 @@
 }
 
 .library-card {
-    padding: 75px;
+    padding: 50px;
     background-color: lightgrey;
-    display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
