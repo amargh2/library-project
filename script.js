@@ -6,16 +6,16 @@ const addButton = document.querySelector('.add')
 let titleField = document.getElementById('title').value
 let authorField = document.getElementById('author').value
 let pagesField = document.getElementById('pages').value
-let tagField = document.getElementById('tag').value
 let libraryField = document.querySelector('.library').textContent
+let readField = document.getElementById('read').value
 
 /*constructor function */
 
-function Book(title, author, pages, tag) {
+function Book(title, author, pages, read) {
     this.title = title
     this.author = author
     this.pages = pages
-    this.tag = tag
+    this.read = read
 }
 
 /*Add book to library array function.*/
@@ -27,10 +27,10 @@ function addBookToLibrary(book) {
 /*Clear all inputs after the add to library button is pushed*/
 
 function clearAll() {
-    document.getElementById('title').value = ""
-    document.getElementById('author').value = ""
-    document.getElementById('pages').value = ""
-    document.getElementById('tag').value = ""
+    document.getElementById('title').value = null
+    document.getElementById('author').value = null
+    document.getElementById('pages').value = null
+    document.getElementById('read').value = null
 }
 
 /*This function creates the delete button that will appear when the book is added; uses data index id (which is derived
@@ -40,6 +40,7 @@ from length of the library array) to ensure that the button deletes the correct 
     text = document.createTextNode('Delete Book');
     button.dataset.indexNumber = library.length;
     button.appendChild(text);
+    button.className = 'delete'
     return button
 }
 
@@ -61,23 +62,37 @@ function newDiv () {
 }
 
 /*function that ties most everything together -- adds button, book div, and appends everything*/
-function addCard (title, author, pages) {
+function addCard (title, author, pages, read) {
     libraryDiv = document.querySelector('.library')
     bookDiv = newDiv();
-    bookDiv.textContent = `${title}, ${author}, ${pages}`
+    bookDiv.textContent = `${title}, ${author}, ${pages}, ${read}`
     libraryDiv.appendChild(bookDiv);
     button = newButton()
     buttonFunction(button)
     bookDiv.appendChild(button)
 
 }
+
+
+/*This function checks that each field in the form is filled out*/
+function validateForm() {
+    if (titleField == null || titleField == "", authorField == null || authorField == "", pagesField == null || pagesField == "", pagesField == null || readField == "not specified") {
+      alert("Make sure you filled out every field!");
+      return false;
+    }
+  }
+
+
 /*Button event listener - when you click it calls the constructor
  and adds the book to the library array and changes the html -
  adds div for the library book and creates the delete button for the element*/
 addButton.addEventListener('click', () => {
-    let book = new Book(titleField, authorField, pagesField)
+    let book = new Book(titleField, authorField, pagesField, readField)
+    if (validateForm() == false) {
+        return;
+    }
     addBookToLibrary(book)
-    addCard(book.title, book.author, book.pages)
+    addCard(book.title, book.author, book.pages, book.read)
     clearAll()
 })
 
@@ -97,13 +112,6 @@ function handleChangePages() {
     pagesField = document.getElementById('pages').value
 }
 
-function handleChangeTag() {
-    tagField = document.getElementById('tag').value
-}
-
-
-/* function for the event listener on each book's delete book button */
-function deleteBook() {
-    deleteButton = document.querySelector('.library-card-button')
-    deleteButton.parentElement.remove()
+function handleChangeRead() {
+    readField = document.getElementById('read').value
 }
