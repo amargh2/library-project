@@ -11,12 +11,12 @@ body {
    justify-items: center;
    align-content: center;
    height:30px;
-   background-color: lightskyblue;
+   background-color: lightcyan;
    padding: 30px;
    gap:10px;
    font-family:Arial, Helvetica, sans-serif;
-   font-weight: 500;
-
+   font-weight: 900;
+    border-bottom:10px solid lightskyblue;
 }
 
 input[type=text] {
@@ -24,12 +24,17 @@ input[type=text] {
     width:15rem;
 }
 
+.dropdown {
+    height:1.75rem;
+    background-color: white;
+    border-radius: 10px;
+}
+
 .library {
     display: grid;
     grid-template-rows: repeat(3, 1fr);
     grid-template-columns: repeat(3, 1fr);
     gap:10px;
-    padding: 10px;
 }
 
 .library-card {
@@ -44,7 +49,7 @@ input[type=text] {
 
 .add {
     border-radius: 15px;
-    width: 15rem;
+    width: 8rem;
     background-color:white;
     font-weight: 500;
 }
@@ -56,4 +61,22 @@ input[type=text] {
     background-color:white;
     color:black;
     font-weight: 500;
+}
+
+.read {
+    width: 10rem;
+    height: 2rem;
+    background-color:white;
+    color:black;
+    font-weight:500;
+    border-radius: 15px;
+}
+
+.not-read {
+    width: 10rem;
+    height: 2rem;
+    background-color: white;
+    color: black;
+    font-weight: 500;
+    border-radius: 15px;
 }

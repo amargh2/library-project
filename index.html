@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./style.css">
+    <script src="https://kit.fontawesome.com/87c9c0cd26.js" crossorigin="anonymous"></script>
     <script src="./script.js" defer></script>
     <!doctype html>
 
@@ -14,18 +15,20 @@
     <div class="container">
         <form autocomplete='off' action="">
             <div class="form">
-                <label for="title">Title</label>
+                <label for="title">Title:</label>
                 <input type="text" name="title" id="title" onchange="handleChangeTitle()" required>
-                 <label for="author">Author</label>
+                 <label for="author">Author:</label>
                 <input type="text" name="author" id="author" onchange="handleChangeAuthor()" required>
-                <label for="pages">Pages</label>
+                <label for="pages">Pages:</label>
                 <input type="text" name="pages" id="pages" onchange="handleChangePages()" required>
-                <label for="read">Did you read it?</label>
-                <select name="read" id="read" onchange="handleChangeRead()" required>
-                    <option value="not specified"> </option>
-                    <option value="yes">Yes</option>
-                    <option value="no">No</option>
-                </select>
+                <label for="read">Finished it?</label>
+                    <select class="dropdown" name="read" id="read" onchange="handleChangeRead()" required>
+                        <div class="dropdown-content">
+                            <option value="not specified"> </option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </div>
+                    </select>
                 <input type="submit" value="Add to Library" class="add"></input>
         </form>
         </div>
