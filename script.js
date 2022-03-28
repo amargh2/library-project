@@ -108,29 +108,24 @@ function newDiv () {
     return bookDiv;
 }
 
-/*function checkButtonEvent(checkButton) {
-    checkButton.addEventListener('click', () => {
-        if (checkButton.className == 'read') {
-            checkButton.childNodes[0].className = 'fa-solid fa-x'
-            checkButton.childNodes[1].textContent = '  Not Read'
-        }
-        else {
-            checkButton.childNodes[0].className = 'fa-solid fa-check'
-            checkButton.childNodes[1].textContent = ' Read'
-        }
-    })
-}*/
+/*function that listens for click of the read/not read button; changes the index item
+to yes/no, and also changes the button content and icon */
 
 libraryDiv.addEventListener('click', function (e) {
     if (e.target.classList.contains('read')) {
         e.target.childNodes[0].className = 'fa-solid fa-x';
         e.target.childNodes[1].textContent = ' Not Read';
         e.target.classList = 'not-read'
+        index = e.target.parentElement.dataset.indexNumber
+        console.log(index)
+        library[index - 1].read = 'no'
     }
     else if (e.target.classList.contains('not-read')){
         e.target.childNodes[0].className = 'fa-solid fa-check'
         e.target.childNodes[1].textContent = ' Read'
         e.target.className = 'read'
+        index = e.target.parentElement.dataset.indexNumber
+        library[index - 1].read = 'yes'
     }
     else {
         return false
